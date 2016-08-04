@@ -1,8 +1,4 @@
 ---
-flannel/flannel-0.5.5-linux-amd64.tar.gz:
-  object_id: 70b6d6f7-456c-4039-8550-af892e4162f0
-  sha: fab60fdf23b029fa39badc008fe951bce5046caa
-  size: 3489977
 kubernetes/addons/cluster-loadbalancing/glbc/default-svc.yaml:
   object_id: 2fa48180-7843-4fcb-8d03-f379038c7f66
   sha: e17e0520b0e4473dc16993ea4b438b6deccedcea
