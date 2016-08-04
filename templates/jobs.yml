@@ -14,7 +14,7 @@ jobs:
     - name: etcd
       release: etcd
     - name: flannel
-      release: kubernetes
+      release: docker
     - name: docker
       release: docker
     - name: node
@@ -30,7 +30,7 @@ jobs:
   - name: node
     templates:
     - name: flannel
-      release: kubernetes
+      release: docker
     - name: docker
       release: docker
     - name: node
