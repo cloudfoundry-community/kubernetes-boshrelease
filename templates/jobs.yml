@@ -9,15 +9,41 @@ update:
   serial: false
 
 jobs:
-  - name: just_install_packages
+  - name: master
     templates:
-    - name: just_install_packages
+    - name: etcd
+      release: etcd
+    - name: flannel
+      release: kubernetes
+    - name: docker
+      release: docker
+    - name: node
       release: kubernetes
     instances: 1
-    persistent_disk: 0
+    persistent_disk: 4096
+    resource_pool: small_z1
+    networks: (( param "please set just_install_package networks" ))
+    properties:
+      kubernetes:
+        master: true
+
+  - name: node
+    templates:
+    - name: flannel
+      release: kubernetes
+    - name: docker
+      release: docker
+    - name: node
+      release: kubernetes
+    instances: 3
+    persistent_disk: 4096
     resource_pool: small_z1
     networks: (( param "please set just_install_package networks" ))
 
+
 networks: (( param "please set networks" ))
 
-properties: {}
+properties:
+  docker:
+    flannel: true
+

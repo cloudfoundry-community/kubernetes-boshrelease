@@ -1,0 +1,22 @@
+---
+name: node
+packages:
+- kubernetes
+templates:
+  bin/kube_proxy_ctl: bin/kube_proxy_ctl
+  bin/kubelet_ctl: bin/kubelet_ctl
+  bin/monit_debugger: bin/monit_debugger
+  data/properties.sh.erb: data/properties.sh
+  manifests/apiserver.yaml: manifests/apiserver.yaml
+  manifests/controller-manager.yaml: manifests/controller-manager.yaml
+  manifests/scheduler.yaml: manifests/scheduler.yaml
+  manifests/addon-manager.yaml: manifests/addon-manager.yaml
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+properties:
+  kubernetes.master:
+    description: master
+    default: false
+
+  apiserver.ip:
+    description: ip of api server

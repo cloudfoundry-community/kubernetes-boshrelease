@@ -12,7 +12,12 @@ update:
   update_watch_time: 1000-30000
 
 jobs:
-  - name: just_install_packages
+  - name: master
+    networks:
+      - name: kubernetes1
+        static_ips: (( static_ips(0) ))
+
+  - name: node
     networks:
       - name: kubernetes1
 
@@ -34,3 +39,11 @@ networks:
     gateway: 10.244.221.1
     static:
       - 10.244.221.2 - 10.244.221.60
+
+properties:
+  apiserver:
+    ip: (( grab jobs.master.networks.kubernetes1.static_ips[0] ))
+  etcd:
+    machines: (( grab jobs.master.networks.kubernetes1.static_ips ))
+    peer_require_ssl: false
+    require_ssl: false

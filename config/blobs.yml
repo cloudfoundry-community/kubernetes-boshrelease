@@ -1,1 +1,41 @@
---- {}
+---
+flannel/flannel-0.5.5-linux-amd64.tar.gz:
+  object_id: 70b6d6f7-456c-4039-8550-af892e4162f0
+  sha: fab60fdf23b029fa39badc008fe951bce5046caa
+  size: 3489977
+kubernetes/addons/cluster-loadbalancing/glbc/default-svc.yaml:
+  object_id: 2fa48180-7843-4fcb-8d03-f379038c7f66
+  sha: e17e0520b0e4473dc16993ea4b438b6deccedcea
+  size: 529
+kubernetes/addons/cluster-loadbalancing/glbc/glbc-controller.yaml:
+  object_id: 4e490bc4-6b81-40fe-b766-4b2f860397b4
+  sha: 900c98c20381c31dc3860eecacd0d58d16969f7e
+  size: 1822
+kubernetes/addons/dashboard/dashboard-controller.yaml:
+  object_id: 0afa930d-7958-4457-87f1-79fc85b5e05f
+  sha: 75900f95f0b559cded084a2d704ba29666875086
+  size: 1135
+kubernetes/addons/dashboard/dashboard-service.yaml:
+  object_id: 0f9fc226-012b-4d04-96ca-eb7035d1e562
+  sha: f820977732d8c3a84665c1cc9458c6099b83bfdf
+  size: 274
+kubernetes/addons/dns/skydns-rc.yaml:
+  object_id: 5fd0e5e9-01b4-446e-9add-cd2df699d421
+  sha: 10ab410422d8f5f754a6d5aa8734cda01d06fdac
+  size: 2714
+kubernetes/addons/dns/skydns-svc.yaml:
+  object_id: fbcbb56d-4fc3-4902-b736-d9a5431be231
+  sha: 32e9ff3babdc4dcaba86579a189b1cbd48e8ddbb
+  size: 363
+kubernetes/addons/namespace.yaml:
+  object_id: 9338326c-a525-496c-9188-b542a42fd4ef
+  sha: 14378218a4ee47aaeb5f1036b3efd4baca8473e2
+  size: 61
+kubernetes/bin/hyperkube:
+  object_id: 31184953-ef68-4c05-abe5-629cd2baac42
+  sha: 6b5f49f6a16534fb85ab44cdca65cefb988b0ca1
+  size: 138063184
+kubernetes/bin/kubectl:
+  object_id: b47cd4c9-5413-4f75-83ed-76d1e56c3b10
+  sha: 9c8606757a00842fb25312f023db7baff50dac4b
+  size: 56516656

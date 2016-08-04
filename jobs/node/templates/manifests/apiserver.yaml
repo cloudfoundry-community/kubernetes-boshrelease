@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kube-apiserver
+  namespace: kube-system
+spec:
+  containers:
+  - command:
+    - /hyperkube
+    - apiserver
+    - --address=0.0.0.0
+    - --etcd-servers=http://127.0.0.1:4001
+    - --service-cluster-ip-range=10.0.0.0/24
+    - 1>>/var/log/kube-apiserver.log 2>&1
+    image: gcr.io/google_containers/hyperkube-amd64:v1.3.4
+    imagePullPolicy: IfNotPresent
+    livenessProbe:
+      httpGet:
+        host: 10.244.221.2
+        path: /healthz
+        port: 8080
+        scheme: HTTP
+      initialDelaySeconds: 15
+      timeoutSeconds: 15
+    name: kube-apiserver
+    ports:
+    - containerPort: 443
+      hostPort: 443
+      name: https
+      protocol: TCP
+    - containerPort: 8080
+      hostPort: 8080
+      name: local
+      protocol: TCP
+    resources:
+      requests:
+        cpu: 250m
+    volumeMounts:
+    - mountPath: /srv/kubernetes
+      name: srvkube
+      readOnly: true
+    - mountPath: /var/log/kube-apiserver.log
+      name: logfile
+  dnsPolicy: ClusterFirst
+  hostNetwork: true
+  restartPolicy: Always
+  terminationGracePeriodSeconds: 30
+  volumes:
+  - hostPath:
+      path: /var/vcap/store/kubernetes/apiserver
+    name: srvkube
+  - hostPath:
+      path: /var/log/kube-apiserver.log
+    name: logfile

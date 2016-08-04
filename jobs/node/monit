@@ -1,0 +1,11 @@
+check process kublet
+  with pidfile /var/vcap/sys/run/node/kublet.pid
+  start program "/var/vcap/jobs/node/bin/monit_debugger kubelet_ctl '/var/vcap/jobs/node/bin/kubelet_ctl start'"
+  stop program "/var/vcap/jobs/node/bin/monit_debugger kubelet_ctl '/var/vcap/jobs/node/bin/kubelet_ctl stop'"
+  group vcap
+
+check process kube_proxy
+  with pidfile /var/vcap/sys/run/node/kube_proxy.pid
+  start program "/var/vcap/jobs/node/bin/monit_debugger kube_proxy_ctl '/var/vcap/jobs/node/bin/kube_proxy_ctl start'"
+  stop program "/var/vcap/jobs/node/bin/monit_debugger kube_proxy_ctl '/var/vcap/jobs/node/bin/kube_proxy_ctl stop'"
+  group vcap
