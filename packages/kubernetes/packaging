@@ -9,5 +9,8 @@ CPUS=$(grep -c ^processor /proc/cpuinfo)
 export HOME=/var/vcap
 
 mkdir -p ${BOSH_INSTALL_TARGET}/bin
+
+chmod +x kubernetes/bin/*
+
 cp kubernetes/bin/* ${BOSH_INSTALL_TARGET}/bin
 cp -r kubernetes/addons ${BOSH_INSTALL_TARGET}/.
